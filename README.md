@@ -7,7 +7,7 @@ In this assignment, you need to implement a `Local DNS Server` which supports it
 ## Overview
 
 <p align="center">
-  <img src="https://github.com/EricLee543/CS305-Assignment1/blob/main/img/dns_overview.png" width="70%"/>
+  <img src="https://github.com/SUSTech-HPCLab/CS305-2024Spring-Assignment1/blob/main/img/dns_overview.png" width="70%"/>
 </p>
 
 Here is an example of an iterative DNS query about resloving the ip address of `www.sustech.edu.cn`. In this project, we need to implement a local DNS server that listens on 127.0.0.1:9999. When a DNS query is received, the local DNS server will send an iterative query to the root server. Based on the reply from the root server, it will send a query to the next server until it receives the final result. The result will be returned to the client finally.
