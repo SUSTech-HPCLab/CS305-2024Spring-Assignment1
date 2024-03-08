@@ -184,4 +184,6 @@ OK
 This means you pass all the tests. We will run your code with another test case (also contains 3 tests) to check your parsing result. When you pass all the tests, you can get 60 points.
 
 ### Build the DNS server (40 points)
-You need to finish the `handle` function in `MyLocalDNSServerHandler` class.
+You need to finish the `handle` function in `MyLocalDNSServerHandler` class to implement a iterative DNS server. The iteration process can be terminated when there is A type RR in the answer section. If there is only CNAME type RR in the answer section, you need to send a new query to the server of the CNAME and append the answer section of the new reply to the original reply.
+
+For example, when using `dig @127.0.0.1 www.baidu.com a -p 9999` to reslove the ip address of www.baidu.com, there will be only a CNAME type RR in the answer section, which points to `www.a.shifen.com`. Then you need to send a new query to the server of `www.a.shifen.com` and append the answer section of the new reply to the original reply.
