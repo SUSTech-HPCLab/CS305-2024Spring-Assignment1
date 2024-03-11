@@ -205,7 +205,7 @@ The report should contain the following information:
 - Your name and student ID
 - The most difficult part of the assignment (code and explanation)
 - How to handle the situation when there is only CNAME type RR in the answer section (code and explanation)
-- Capture the DNS packets by using **Wireshark** when you use `dig` to test your local DNS server. You take `www.sustech.edu.cn` or `www.baidu.com` as an example
+- Capture the DNS packets by using **Wireshark** when using `dig` to test your local DNS server. You can take `www.sustech.edu.cn` or `www.baidu.com` as an example
 
 ## What to submit
 - `local_dns_server.py`: don't change the file name
