@@ -145,7 +145,7 @@ Similarly, we provide a bytes-format question section in `./raw_packet/question.
 When you finish the `from_wire` and `__init__` function of `DNSQuestion`, you can run `python test.py` to test your parsing result. 
 
 
-#### Parse the DNS Message (40 points)
+#### Parse the DNS Message (30 points)
 The `DNSMessgae` consists of the following attributes: 
 - `self.header`: a `DNSHeader` object
 - `self.question`: a `DNSQuestion` object, all testcases will contains only one question
@@ -184,9 +184,9 @@ OK
 This means you pass all the tests. We will run your code with another test case (also contains 3 tests) to check your parsing result. When you pass all the tests, you can get 60 points.
 
 ### Build the DNS server (40 points)
-You need to finish the `handle` function in `MyLocalDNSServerHandler` class to implement a iterative DNS server. The iteration process can be terminated when there is A type RR in the answer section. If there is only CNAME type RR in the answer section, you need to send a new query to the server of the CNAME and append the answer section of the new reply to the original reply.
+You need to finish the `handle` function in `MyLocalDNSServerHandler` class to implement a iterative DNS server. The iteration process can be terminated when there is A type RR in the answer section. If there is only CNAME type RR in the answer section, you need to send a new query to the server of the CNAME and append the answer section of the new reply to the original reply. 
 
-For example, when using `dig @127.0.0.1 www.baidu.com a -p 9999` to reslove the ip address of `www.baidu.com`, there will be only a CNAME type RR in the answer section, which points to `www.a.shifen.com`. Then you need to send a new query to the server of `www.a.shifen.com` and append the answer section of the new reply to the original reply.
+when using `dig @127.0.0.1 www.baidu.com a -p 9999` to reslove the ip address of `www.baidu.com`, there will be only a CNAME type RR in the answer section, which points to `www.a.shifen.com`. Then you need to send a new query to the server of `www.a.shifen.com` and append the answer section of the new reply to the original reply. 
 
 
 <p align="center">
@@ -197,3 +197,25 @@ For example, when using `dig @127.0.0.1 www.baidu.com a -p 9999` to reslove the 
   <img src="https://github.com/SUSTech-HPCLab/CS305-2024Spring-Assignment1/blob/main/img/right_example.png" width="70%"/>
 </p>
 
+**Note: You should start the local DNS server by running `python local_dns_server.py` in one terminal. Then use `dig` to test your local DNS server in another terminal.**
+
+
+### Report (10 points)
+The report should contain the following information:
+- Your name and student ID
+- The most difficult part of the assignment (code and explanation)
+- How to handle the situation when there is only CNAME type RR in the answer section (code and explanation)
+- Capture the DNS packets by using **Wireshark** when you use `dig` to test your local DNS server. You take `www.sustech.edu.cn` or `www.baidu.com` as an example
+
+## What to submit
+- `local_dns_server.py`: don't change the file name
+- `SID_Name_report.pdf`: the report file should be named as `SID_Name_report.pdf`. For example, if your student ID is 12345678 and your name is Zhang San, the report file should be named as `12345678_ZhangSan_report.pdf`.
+**You don't need to submit the `test.py` file. Passing the tests in `test.py` is only for your own debugging, does not mean you gain the full score. We will run your code with another test case to check your parsing result.**
+
+
+## Grading
+- 10 points for parsing the DNS header
+- 10 points for parsing the DNS question
+- 30 points for parsing the whole DNS packet
+- 40 points for building the DNS server
+- 10 points for the report
