@@ -55,7 +55,9 @@ ns2.sustech.edu.cn.	3600	IN	AAAA	2001:da8:201d::42:93
 **Note: [RFC1035](https://www.ietf.org/rfc/rfc1035.txt) is the main reference for this assignment.**
 
 ### Environment
-We recommend python 3.8 as the execution environment. You can use conda to create an environment by `conda create -n assign1 python=3.8`. 
+**You should use python 3.8 as the execution environment. Higher versions of Python might lead to errors.** 
+
+You can use conda to create an environment by `conda create -n assign1 python=3.8`. 
 Libraries specifically designed for parsing DNS packets are not allowed in this assignment. If you want to introduce any third-party libraries necessarily (not installed by anaconda), please contact SA or discuss in the issues.
 
 ### Parse the DNS Packet
