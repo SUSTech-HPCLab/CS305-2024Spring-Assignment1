@@ -2,7 +2,7 @@
 
 In this assignment, you need to implement a `Local DNS Server` which supports iterative DNS query with Python.
 
-**Note: You are not allowed to use third-party libraries such as `dnspython`, `dnslib`, or any other library specifically designed for parsing DNS packets. However, other basic libraries like IO and socket are allowed.**
+**Note: You are not allowed to use third-party libraries such as `dnspython`, `dnslib`, or any other library specifically designed for parsing DNS packets. However, other basic standard libraries like IO and socket are allowed.**
 
 ## Overview
 
@@ -53,6 +53,10 @@ ns2.sustech.edu.cn.	3600	IN	AAAA	2001:da8:201d::42:93
 ## Detailed Guidlines
 
 **Note: [RFC1035](https://www.ietf.org/rfc/rfc1035.txt) is the main reference for this assignment.**
+
+### Environment
+We recommend python 3.8 as the execution environment. You can use conda to create an environment by `conda create -n assign1 python=3.8`. 
+Libraries specifically designed for parsing DNS packets are not allowed in this assignment. If you want to introduce any third-party libraries necessarily (not installed by anaconda), please contact SA or discuss in the issues.
 
 ### Parse the DNS Packet
 Since we are not allowed to use third-party libraries, we need to parse the DNS packet manually. The format of a DNS packet is shown below: 
@@ -181,7 +185,7 @@ Ran 3 tests in 0.001s
 
 OK
 ```
-This means you pass all the tests. We will run your code with another test case (also contains 3 tests) to check your parsing result. When you pass all the tests, you can get 60 points.
+This means you pass all the tests. We will run your code with another test case (also contains 3 tests) to check your parsing result. When you pass all the tests, you can get 50 points.
 
 ### Build the DNS server (40 points)
 You need to finish the `handle` function in `MyLocalDNSServerHandler` class to implement a iterative DNS server. The iteration process can be terminated when there is A type RR in the answer section. If there is only CNAME type RR in the answer section, you need to send a new query to the server of the CNAME and append the answer section of the new reply to the original reply. 
