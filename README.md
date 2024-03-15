@@ -55,10 +55,15 @@ ns2.sustech.edu.cn.	3600	IN	AAAA	2001:da8:201d::42:93
 **Note: [RFC1035](https://www.ietf.org/rfc/rfc1035.txt) is the main reference for this assignment.**
 
 ### Environment
+
+#### Python Environment
 **You should use python 3.8 as the execution environment. Higher versions of Python might lead to errors.** 
 
 You can use conda to create an environment by `conda create -n assign1 python=3.8`. 
 Libraries specifically designed for parsing DNS packets are not allowed in this assignment. If you want to introduce any third-party libraries necessarily (not installed by anaconda), please contact SA or discuss in the issues.
+
+#### Dig
+`dig` is a command-line tool for querying DNS servers for information about a domain name. For linux and macOS, `dig` is pre-installed. For Windows, you can check [How to install dig](https://phoenixnap.com/kb/dig-windows) or [Windows安装dig命令](https://cloud.tencent.com/developer/article/1569087).
 
 ### Parse the DNS Packet
 Since we are not allowed to use third-party libraries, we need to parse the DNS packet manually. The format of a DNS packet is shown below: 
