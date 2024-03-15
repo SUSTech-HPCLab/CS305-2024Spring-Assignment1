@@ -177,7 +177,7 @@ The `DNSRR` class has the following attributes:
 
 **Hint1: domain name can be represented in three formats: normal format, compressed format, and mixed format (normal and compressed). You need to handle both of them. See 4.1.4. Message compression of [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).**
 
-**Hint2: You only need to handle the following types of RRs: A, NS, CNAME, and AAAA. For type A, `self.rdata` should be a string of IPv4 address. For type AAAA, `self.rdata` should be a string of IPv6 address. For type NS and CNAME, `self.rdata` should be a string of domain name. The `self.rdata` of other types of RRs can be byte object.**
+**Hint2: You only need to handle the following types of RRs: A, NS, CNAME, and AAAA. For type A, `self.rdata` should be a string of IPv4 address (e.g. 183.2.172.42). For type AAAA, `self.rdata` should be a string of IPv6 address (e.g. 2001:0DB8:AC10:FE01::). For type NS and CNAME, `self.rdata` should be a string of domain name. The `self.rdata` of other types of RRs can be byte object.**
 
 When you finsh the `from_wire` function of `DNSHeader`, `DNSQuestion` and `DNSMessage`, you can run `python test.py` to test your parsing result. 
 When you successfully parse the whole DNS packet, you can see the following output: 
@@ -197,6 +197,7 @@ This means you pass all the tests. We will run your code with another test case 
 ### Build the DNS server (40 points)
 You need to finish the `handle` function in `MyLocalDNSServerHandler` class to implement a iterative DNS server. The iteration process can be terminated when there is A type RR in the answer section. If there is only CNAME type RR in the answer section, you need to send a new query to the server of the CNAME and append the answer section of the new reply to the original reply. 
 
+#### Only CNAME type RR in the answer section
 when using `dig @127.0.0.1 www.baidu.com a -p 9999` to reslove the ip address of `www.baidu.com`, there will be only a CNAME type RR in the answer section, which points to `www.a.shifen.com`. Then you need to send a new query to the server of `www.a.shifen.com` and append the answer section of the new reply to the original reply. 
 
 
@@ -207,6 +208,12 @@ when using `dig @127.0.0.1 www.baidu.com a -p 9999` to reslove the ip address of
 <p align="center">
   <img src="https://github.com/SUSTech-HPCLab/CS305-2024Spring-Assignment1/blob/main/img/right_example.png" width="70%"/>
 </p>
+
+#### No additional section in the reply
+In some cases, there is no additional section in the reply, which means there is no IP address of the server should be queried next. But the autority section contains the NS type RR (a domain name). You should send a new query to resolve the IP address of the domain name in the autority section. When you get the IP address, you can do the next query.
+
+
+You can test `www.baidu.com`, `www.example.com`, `www.bilibili.com`, and any other domain name you like.
 
 **Note: You should start the local DNS server by running `python local_dns_server.py` in one terminal. Then use `dig` to test your local DNS server in another terminal.**
 
