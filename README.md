@@ -1,6 +1,6 @@
-# CS305-Assignment1 Local DNS Server
+# CS305 Programming Assignment 1 Local DNS Server
 
-In this assignment, you need to implement a `Local DNS Server` which supports iterative DNS query with Python.
+In this programming assignment, you need to implement a `Local DNS Server` which supports iterative DNS query with Python.
 
 **Note: You are not allowed to use third-party libraries such as `dnspython`, `dnslib`, or any other library specifically designed for parsing DNS packets. However, other basic standard libraries like IO and socket are allowed.**
 
