@@ -208,7 +208,7 @@ when using `dig @127.0.0.1 www.baidu.com a -p 9999` to reslove the ip address of
 </p>
 
 <p align="center">
-  <img src="https://github.com/SUSTech-HPCLab/CS305-2024Spring-Assignment1/blob/main/img/right_example.png" width="70%"/>
+  <img src="https://github.com/SUSTech-HPCLab/CS305-2024Spring-Assignment1/blob/main/img/right_example_v2.png" width="70%"/>
 </p>
 
 #### No additional section in the reply
