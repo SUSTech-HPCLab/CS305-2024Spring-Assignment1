@@ -2,6 +2,8 @@
 
 In this programming assignment, you need to implement a `Local DNS Server` which supports iterative DNS query with Python.
 
+If you have any questions, please raise an issue or contact Yifei Li (李逸⻜) at 12232396@mail.sustech via direct message on QQ or email.
+
 **Note: You are not allowed to use third-party libraries such as `dnspython`, `dnslib`, or any other library specifically designed for parsing DNS packets. However, other basic standard libraries like IO and socket are allowed.**
 
 ## Overview
