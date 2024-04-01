@@ -179,7 +179,7 @@ The `DNSRR` class has the following attributes:
 
 **Hint1: domain name can be represented in three formats: normal format, compressed format, and mixed format (normal and compressed). You need to handle both of them. See 4.1.4. Message compression of [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).**
 
-**Hint2: You only need to handle the following types of RRs: A, NS, CNAME, and AAAA. For type A, `self.rdata` should be a string of IPv4 address (e.g. 183.2.172.42). For type AAAA, `self.rdata` should be a string of IPv6 address (e.g. 2001:0DB8:AC10:FE01::). For type NS and CNAME, `self.rdata` should be a string of domain name. The `self.rdata` of other types of RRs can be byte object.**
+**Hint2: You only need to handle the following types of RRs: A, NS, CNAME, and AAAA. For type A, `self.rdata` should be a string of IPv4 address (e.g. 183.2.172.42). For type AAAA, `self.rdata` should be a string of IPv6 address (e.g. 2001:0DB8:AC10:FE01::). For type NS and CNAME, `self.rdata` should be a string of domain name. For type OPT (41), you can fill `self.rdata` with a string `root` (we will not test this case when grading, don't worry about it). The `self.rdata` of other types of RRs can be byte object.**
 
 When you finsh the `from_wire` function of `DNSHeader`, `DNSQuestion` and `DNSMessage`, you can run `python test.py` to test your parsing result. 
 When you successfully parse the whole DNS packet, you can see the following output: 
